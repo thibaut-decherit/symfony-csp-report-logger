@@ -45,7 +45,7 @@ class ViolationController extends DefaultController
     }
 
     /**
-     * Converts report to an associative array then uses the data to create a new CspViolation object.
+     * Converts report into an associative array then uses the data to create a new CspViolation object.
      *
      * @param string $report
      * @return CspViolation

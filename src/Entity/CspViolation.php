@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
 
@@ -64,8 +66,8 @@ class CspViolation
         $this->blockedUri = $violationRawData['blocked-uri'];
         $this->route = $violationRawData['route'];
         $this->count = 1;
-        $this->firstViolationAt = new \DateTime();
-        $this->lastViolationAt = new \DateTime();
+        $this->firstViolationAt = new DateTime();
+        $this->lastViolationAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -78,7 +80,7 @@ class CspViolation
         return $this->violatedDirective;
     }
 
-    public function setViolatedDirective(string $violatedDirective): self
+    public function setViolatedDirective(string $violatedDirective): CspViolation
     {
         $this->violatedDirective = $violatedDirective;
 
@@ -90,7 +92,7 @@ class CspViolation
         return $this->documentUri;
     }
 
-    public function setDocumentUri(string $documentUri): self
+    public function setDocumentUri(string $documentUri): CspViolation
     {
         $this->documentUri = $documentUri;
 
@@ -102,7 +104,7 @@ class CspViolation
         return $this->blockedUri;
     }
 
-    public function setBlockedUri(string $blockedUri): self
+    public function setBlockedUri(string $blockedUri): CspViolation
     {
         $this->blockedUri = $blockedUri;
 
@@ -114,7 +116,7 @@ class CspViolation
         return $this->route;
     }
 
-    public function setRoute(string $route): self
+    public function setRoute(string $route): CspViolation
     {
         $this->route = $route;
 
@@ -126,31 +128,31 @@ class CspViolation
         return $this->count;
     }
 
-    public function setCount(int $count): self
+    public function setCount(int $count): CspViolation
     {
         $this->count = $count;
 
         return $this;
     }
 
-    public function getFirstViolationAt(): ?\DateTimeInterface
+    public function getFirstViolationAt(): ?DateTimeInterface
     {
         return $this->firstViolationAt;
     }
 
-    public function setFirstViolationAt(\DateTimeInterface $firstViolationAt): self
+    public function setFirstViolationAt(DateTimeInterface $firstViolationAt): CspViolation
     {
         $this->firstViolationAt = $firstViolationAt;
 
         return $this;
     }
 
-    public function getLastViolationAt(): ?\DateTimeInterface
+    public function getLastViolationAt(): ?DateTimeInterface
     {
         return $this->lastViolationAt;
     }
 
-    public function setLastViolationAt(\DateTimeInterface $lastViolationAt): self
+    public function setLastViolationAt(DateTimeInterface $lastViolationAt): CspViolation
     {
         $this->lastViolationAt = $lastViolationAt;
 
